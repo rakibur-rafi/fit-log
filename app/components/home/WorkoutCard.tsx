@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { Workout } from '../types/Workout';
+import { Workout } from '../../types/Workout';
 import { FaFireAlt} from 'react-icons/fa';
 import { FiClock, FiStar } from 'react-icons/fi';
 

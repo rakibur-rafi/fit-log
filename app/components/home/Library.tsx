@@ -1,5 +1,6 @@
 
-import { Workout } from "../types/Workout";
+
+import { Workout } from "../../types/Workout";
 import WorkoutCard from "./WorkoutCard";
 
 const WorkoutLibrary = async () => {

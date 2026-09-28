@@ -1,8 +1,8 @@
-import React from 'react';
-import Hero from './components/Hero';
-import WorkoutLibrary from './components/Library';
+import Hero from './components/home/Hero';
+import WorkoutLibrary from './components/home/Library';
 
 const page = () => {
+
   return (
     <div>
       <Hero/>

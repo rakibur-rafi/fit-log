@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { WorkoutContext } from "../context/WorkoutContext";
 
 const navItems =[
   {
@@ -17,6 +18,9 @@ const navItems =[
   }]
 
 const Navbar = () => {
+
+  const { plan, saved} = useContext(WorkoutContext)
+
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -69,7 +73,7 @@ const Navbar = () => {
             </span>
 
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-extrabold leading-none text-black">
-              3
+              {plan.length}
             </span>
           </button>
 
@@ -79,7 +83,7 @@ const Navbar = () => {
             </span>
 
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-extrabold leading-none text-[#9CA3AF]">
-              0
+              {saved.length}
             </span>
           </button>
 
@@ -131,7 +135,7 @@ const Navbar = () => {
               </span>
 
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-bold text-black">
-                3
+                {plan.length}
               </span>
             </button>
 
@@ -141,7 +145,7 @@ const Navbar = () => {
               </span>
 
               <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-bold text-[#9CA3AF]">
-                0
+                {saved.length}
               </span>
             </button>
 
