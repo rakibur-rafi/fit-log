@@ -8,31 +8,31 @@ import { MdAddCircle } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const ActionButtons = ({ workout }: { workout: Workout }) => {
-  const { plan, saved, setPlan, setSaved } = useContext(WorkoutContext);
+  const { plan, saved, setPlan, setSaved } = useContext(WorkoutContext)
 
   const handleAddToPlan = () => {
     const alreadyInPlan = plan.some((item) => item.id === workout.id)
 
     if (alreadyInPlan) {
-      toast.error("Workout already in plan")
+      toast.error("Already in plan")
       return
     }
 
     setPlan([...plan, workout])
-    toast.success("Workout added to today's plan")
-  };
+    toast.success("Added to today's plan")
+  }
 
    const handleAddToSaved = () => {
     const alreadyInSaved = saved.some((item) => item.id === workout.id)
 
     if (alreadyInSaved) {
-      toast.error("Workout already in saved")
+      toast.error("Already in saved")
       return
     }
 
     setSaved([...saved, workout])
-    toast.success("Workout added to saved")
-  };
+    toast.success("Added to saved")
+  }
 
 
   return (
