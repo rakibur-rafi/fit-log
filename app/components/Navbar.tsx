@@ -25,8 +25,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-[#1C1F26] bg-black text-white">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:h-24 sm:px-6">
+    <nav className="sticky top-0 z-50 w-full border-b border-[#1C1F26] bg-black/75 backdrop-blur-2xl  text-white">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6">
 
         <Link
           href="/"
@@ -66,27 +66,31 @@ const Navbar = () => {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-
-          <button className="flex items-center gap-3 px-3 py-2 text-sm font-medium">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-3 rounded-full px-3 py-2 text-sm font-medium hover:bg-[#15171D] hover:text-white"
+          >
             <span className="text-[#D1D5DB]">
               Plan
             </span>
 
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-extrabold leading-none text-black">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C2F800] text-xs font-extrabold leading-none text-black">
               {plan.length}
             </span>
-          </button>
+          </Link>
 
-          <button className="flex items-center gap-3 px-3 py-2 text-sm font-medium">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-3 rounded-full px-3 py-2 text-sm font-medium hover:bg-[#15171D] hover:text-white"
+          >
             <span className="text-[#9CA3AF]">
               Saved
             </span>
 
-            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-extrabold leading-none text-[#9CA3AF]">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-extrabold leading-none text-[#9CA3AF]">
               {saved.length}
             </span>
-          </button>
-
+          </Link>
         </div>
 
         {/* Menu*/}
@@ -129,7 +133,7 @@ const Navbar = () => {
 
           <div className="mt-3 flex gap-2 border-t border-[#1C1F26] pt-3">
 
-            <button className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
+            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
               <span className="text-[#D1D5DB]">
                 Plan
               </span>
@@ -137,9 +141,9 @@ const Navbar = () => {
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-bold text-black">
                 {plan.length}
               </span>
-            </button>
+            </Link>
 
-            <button className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
+            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
               <span className="text-[#9CA3AF]">
                 Saved
               </span>
@@ -147,7 +151,7 @@ const Navbar = () => {
               <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-bold text-[#9CA3AF]">
                 {saved.length}
               </span>
-            </button>
+            </Link>
 
           </div>
         </div>

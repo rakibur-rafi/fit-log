@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -24,11 +23,12 @@ const Hero = () => {
               into today&apos;s plan, and watch the week&apos;s work add up.
             </p>
 
-            <button className="mt-6 rounded-xl bg-[#C2F800] px-5 py-3 text-sm font-bold uppercase text-black sm:mt-8 sm:px-6 sm:py-4">
-              <Link href="/workouts">
-                Browse Workouts
-              </Link>
-            </button>
+            <a
+              href="#library"
+              className="mt-6 inline-block rounded-xl bg-[#C2F800] px-5 py-3 text-sm font-bold uppercase text-black transition hover:bg-[#d0ff33] sm:mt-8 sm:px-6 sm:py-4"
+            >
+              Browse Workouts
+            </a>
           </div>
 
           <div className="relative flex justify-center lg:justify-end">

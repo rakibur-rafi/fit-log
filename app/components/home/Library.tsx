@@ -13,7 +13,7 @@ const WorkoutLibrary = async () => {
   const workouts : Workout[] = await res.json()
 
   return (
-    <section className="container mx-auto px-6 py-20">
+    <section id="library" className="container scroll-mt-24 mx-auto px-6 py-20">
       {/* Section Header */}
       <div className="mb-10">
         <h2 className="font-oswald text-3xl font-bold uppercase text-white">

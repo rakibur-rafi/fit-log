@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
 @theme {
   --font-inter: var(--font-inter);
   --font-oswald: var(--font-oswald);

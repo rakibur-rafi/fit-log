@@ -5,9 +5,17 @@ import Navbar from "./components/Navbar";
 import WorkoutProvider from "./context/WorkoutContext";
 import { ToastContainer } from "react-toastify";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  preload: false,
+})
 
-export const oswald= Oswald({ subsets: ["latin"], variable: "--font-oswald" });
+export const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  preload: false,
+})
 
 export const metadata: Metadata = {
   title: "Fitlog",
@@ -20,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-inter">
         <WorkoutProvider>
           <ToastContainer/>
           <Navbar />
