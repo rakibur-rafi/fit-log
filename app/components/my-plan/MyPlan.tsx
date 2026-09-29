@@ -8,7 +8,7 @@ import WorkoutCard from "./WorkoutCard";
 import { toast } from "react-toastify";
 
 const MyPlan = () => {
-  const { plan, saved, setPlan, setSaved } = useContext(WorkoutContext)
+  const { plan, saved, setPlan, setSaved, loading } = useContext(WorkoutContext)
 
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan")
 
@@ -27,8 +27,10 @@ const MyPlan = () => {
   const removeWorkout = (id: number) => {
     if (activeTab === "plan") {
       setPlan(plan.filter((workout) => workout.id !== id))
+      toast.success("Workout removed from plan")
     } else {
       setSaved(saved.filter((workout) => workout.id !== id))
+      toast.success("Workout removed from saved")
     }
   }
   
@@ -155,38 +157,46 @@ const MyPlan = () => {
         </div>
       </div>
 
-      {workouts.length === 0 ? (
-        <div className="flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#1C1F26] bg-[#111317]/50 px-6 text-center">
-          <h2 className="font-oswald text-xl font-bold uppercase text-white">
-            NOTHING HERE YET
-          </h2>
+      {loading ? (
+          <div className="flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-[#232732] bg-[#111317]/50 px-6 text-center">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#232732] border-t-[#C2F800]" />
 
-          <p className="mt-2 max-w-md text-sm text-[#A1A1AA]">
-            Browse the library and add a lift to get today moving.
-          </p>
-
-          <Link
-            href="/"
-            className="mt-6 rounded-full bg-[#C2F800] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#d0ff33]"
-          >
-            Go to workouts
-          </Link>
-        </div>
-      ) : (
-       <div className="space-y-4">
-        {sortedWorkouts.map((workout) => (
-          <WorkoutCard
-            key={workout.id}
-            workout={workout}
-            activeTab={activeTab}
-            onRemove={removeWorkout}
-            markWorkout={markWorkout}
-            completedWorkouts={completedWorkouts}
-          />
-        ))}
-      </div>
-            )}
+            <p className="mt-5 text-sm font-semibold text-[#9CA3AF]">
+              Loading workouts…
+            </p>
           </div>
+        ) : workouts.length === 0 ? (
+          <div className="flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#1C1F26] bg-[#111317]/50 px-6 text-center">
+            <h2 className="font-oswald text-xl font-bold uppercase text-white">
+              NOTHING HERE YET
+            </h2>
+
+            <p className="mt-2 max-w-md text-sm text-[#A1A1AA]">
+              Browse the library and add a lift to get today moving.
+            </p>
+
+            <Link
+              href="/"
+              className="mt-6 rounded-full bg-[#C2F800] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#d0ff33]"
+            >
+              Go to workouts
+            </Link>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {sortedWorkouts.map((workout) => (
+              <WorkoutCard
+                key={workout.id}
+                workout={workout}
+                activeTab={activeTab}
+                onRemove={removeWorkout}
+                markWorkout={markWorkout}
+                completedWorkouts={completedWorkouts}
+              />
+            ))}
+          </div>
+        )}
+        </div>
         )
 };
 export default MyPlan

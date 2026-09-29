@@ -13,7 +13,7 @@ const WorkoutCard = ({workout }: {workout: Workout}) => {
                 className="card border border-[#222630] bg-[#15171D] shadow-sm transition hover:-translate-y-1 hover:border-[#C2F800]"
                 >
                 <figure className="aspect-[2/1] overflow-hidden">
-                    <Image src={workout.image} alt={workout.name} width={500} height={400}/>
+                    <Image src={workout.image} alt={workout.name} width={500} height={400} loading='eager'/>
                 </figure>
 
                 <div className="card-body">

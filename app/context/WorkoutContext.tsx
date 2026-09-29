@@ -15,6 +15,7 @@ interface WorkoutContextType {
   setPlan: Dispatch<SetStateAction<Workout[]>>;
   saved: Workout[];
   setSaved: Dispatch<SetStateAction<Workout[]>>;
+  loading: boolean;
 }
 
 export const WorkoutContext = createContext<WorkoutContextType>({
@@ -22,36 +23,46 @@ export const WorkoutContext = createContext<WorkoutContextType>({
   setPlan: () => {},
   saved: [],
   setSaved: () => {},
+  loading: true,
 });
 
 const WorkoutProvider = ({ children }: { children: ReactNode }) => {
-  const [plan, setPlan] = useState<Workout[]>(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
-
-    const storedPlan = localStorage.getItem("fitlog-plan");
-
-    return storedPlan ? JSON.parse(storedPlan) : [];
-  });
-
-  const [saved, setSaved] = useState<Workout[]>(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
-
-    const storedSaved = localStorage.getItem("fitlog-saved");
-
-    return storedSaved ? JSON.parse(storedSaved) : [];
-  });
+  const [plan, setPlan] = useState<Workout[]>([]);
+  const [saved, setSaved] = useState<Workout[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem("fitlog-plan", JSON.stringify(plan));
-  }, [plan]);
+    const loadData = () => {
+      const storedPlan = localStorage.getItem("fitlog-plan");
+      const storedSaved = localStorage.getItem("fitlog-saved");
+
+      if (storedPlan) {
+        setPlan(JSON.parse(storedPlan));
+      }
+
+      if (storedSaved) {
+        setSaved(JSON.parse(storedSaved));
+      }
+
+      setLoading(false);
+    };
+
+    const timer = setTimeout(loadData, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem("fitlog-saved", JSON.stringify(saved));
-  }, [saved]);
+    if (!loading) {
+      localStorage.setItem("fitlog-plan", JSON.stringify(plan));
+    }
+  }, [plan, loading]);
+
+  useEffect(() => {
+    if (!loading) {
+      localStorage.setItem("fitlog-saved", JSON.stringify(saved));
+    }
+  }, [saved, loading]);
 
   return (
     <WorkoutContext.Provider
@@ -60,6 +71,7 @@ const WorkoutProvider = ({ children }: { children: ReactNode }) => {
         setPlan,
         saved,
         setSaved,
+        loading,
       }}
     >
       {children}

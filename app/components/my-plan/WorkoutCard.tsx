@@ -22,15 +22,16 @@ const WorkoutCard = ({
 }: WorkoutCardProps) => {
   return (
     <div className="overflow-hidden rounded-2xl border border-[#232732] bg-[#14171E]">
-      <div className="flex flex-col border-b border-[#232732] sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:p-6">
-          <div className="aspect-[2/1] w-full overflow-hidden rounded-2xl sm:w-36 sm:shrink-0">
+      <div className="flex flex-col border-b border-[#232732] md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 p-5 md:flex-row md:items-center sm:p-6">
+          <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl sm:w-36 sm:shrink-0">
             <Image
               src={workout.image}
               alt={workout.name}
-              width={144}
-              height={80}
-              className="h-full w-full object-cover"
+              fill
+              sizes="(max-width: 640px) 100vw, 144px"
+              loading="eager"
+              className="object-cover"
             />
           </div>
 
@@ -63,7 +64,7 @@ const WorkoutCard = ({
         </div>
 
         {/* Actions */}
-        <div className="flex max-sm:flex-col max-sm:items-start items-center gap-3 p-5 pt-0 sm:p-6 sm:pt-6">
+        <div className="flex max-md:flex-col max-md:items-start items-center gap-3 p-5 pt-0 sm:p-6 sm:pt-6">
           <Link
             href={`/workouts/${workout.id}`}
             className="flex h-[46px] items-center justify-center rounded-full border border-[#374151] px-6 text-sm font-semibold text-white transition hover:border-[#C2F800] hover:text-[#C2F800]"
@@ -92,11 +93,11 @@ const WorkoutCard = ({
 
           <button
             onClick={() => onRemove(workout.id)}
-            className="flex h-[46px] items-center justify-center gap-2 rounded-full text-[#6B7280] transition hover:text-red-400 sm:w-[46px] max-sm:border max-sm:border-[#374151] max-sm:px-6"
+            className="flex h-[46px] items-center justify-center gap-2 rounded-full text-[#6B7280] transition hover:text-red-400 md:w-[46px] max-md:border max-md:border-[#374151] max-md:px-6"
           >
             <FiX size={20} />
 
-            <span className="text-sm font-semibold sm:hidden">
+            <span className="text-sm font-semibold md:hidden">
               Remove
             </span>
           </button>

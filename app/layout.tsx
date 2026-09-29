@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import WorkoutProvider from "./context/WorkoutContext";
 import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ToastContainer/>
           <Navbar />
           <main className="flex-1">{children}</main>
+          <Footer/>
         </WorkoutProvider>
       </body>
     </html>
