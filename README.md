@@ -39,6 +39,6 @@ Sort exercises by **duration, calories, or rating** in **Today's Plan** and **Sa
 
 ## Project Links
 
-- **Live Link:** [FITLOG]()
+- **Live Link:** [FITLOG](https://fit-log-liart-chi.vercel.app/)
 - **GitHub Repository:** [GitHub]()
 

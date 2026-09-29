@@ -31,7 +31,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-inter">
         <WorkoutProvider>
-          <ToastContainer/>
+          <ToastContainer
+            position="top-right"
+            autoClose={2500}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+            draggable
+            theme="dark"
+            toastClassName="!rounded-xl !border !border-[#2A2E38] !bg-[#151921]/90 !text-white !shadow-xl !backdrop-blur-md"
+            progressClassName="!bg-[#C2F800]"
+            className="!text-md !font-medium !text-[#E5E7EB]"
+          />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer/>
