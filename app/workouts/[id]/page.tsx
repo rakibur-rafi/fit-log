@@ -10,8 +10,7 @@ const WorkoutDetail = async ({params}: {params: Promise<{ id: string }>}) => {
   const { id } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${id}`,{ cache: "no-store"}
-  )
+    `https://api.abcz.workers.dev/api/fitlog/${id}`,{ cache: "no-store"})
 
   if (!res.ok) {
     return (
@@ -50,14 +49,11 @@ const WorkoutDetail = async ({params}: {params: Promise<{ id: string }>}) => {
           />
         </div>
 
-        {/* Right */}
         <div>
-          {/* Title */}
           <h1 className="font-oswald text-4xl font-bold uppercase leading-tight tracking-tight text-white">
             {workout.name}
           </h1>
 
-          {/* Description */}
           <p className="mt-5 text-sm sm:text-lg leading-7 text-[#9CA3AF]">
             {workout.description}
           </p>
@@ -70,7 +66,6 @@ const WorkoutDetail = async ({params}: {params: Promise<{ id: string }>}) => {
             }
             </div>
 
-          {/* Spec Table */}
           <div className="mt-8 overflow-hidden rounded-2xl border border-[#222630] bg-[#151922]">
             
 
@@ -133,7 +128,6 @@ const WorkoutDetail = async ({params}: {params: Promise<{ id: string }>}) => {
             </div>
           </div>
 
-          {/* Instructions */}
           <div className="mt-8">
             <h2 className="text-lg font-bold uppercase text-white">
               Instructions
@@ -155,7 +149,6 @@ const WorkoutDetail = async ({params}: {params: Promise<{ id: string }>}) => {
             </ol>
           </div>
 
-          {/* Action Buttons */}
           <ActionButtons workout={workout}/>
         </div>
       </div>

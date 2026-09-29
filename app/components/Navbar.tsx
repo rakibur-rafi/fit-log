@@ -133,22 +133,22 @@ const Navbar = () => {
 
           <div className="mt-3 flex gap-2 border-t border-[#1C1F26] pt-3">
 
-            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
+            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-xs font-medium">
               <span className="text-[#D1D5DB]">
                 Plan
               </span>
 
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-bold text-black">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-xs font-extrabold text-black">
                 {plan.length}
               </span>
             </Link>
 
-            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-sm font-medium">
+            <Link href="/my-plan" className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#15171D] px-4 py-3 text-xs font-medium">
               <span className="text-[#9CA3AF]">
                 Saved
               </span>
 
-              <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-bold text-[#9CA3AF]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9CA3AF] text-xs font-extrabold text-[#9CA3AF]">
                 {saved.length}
               </span>
             </Link>

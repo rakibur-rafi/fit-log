@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
 
           <div className="max-w-2xl">
-            <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[#C2F800] sm:mb-5 sm:text-sm">
+            <p className="mb-4 text-xs font-semibold tracking-[0.1em] text-[#C2F800] sm:mb-5 sm:text-sm">
               WORKOUT LIBRARY
             </p>
 
@@ -38,6 +38,7 @@ const Hero = () => {
                 alt="Workout"
                 width={500}
                 height={500}
+                loading="eager"
                 className="h-auto w-full object-cover"
               />
             </div>
